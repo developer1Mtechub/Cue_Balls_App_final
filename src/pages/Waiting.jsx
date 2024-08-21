@@ -231,15 +231,18 @@ function Waiting({ selectedball }) {
                                                 </Typography>
 
                                                 <div>
-                                                    {game?.user_selcted_ball > 0 ?
-                                                        <>
-                                                            <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="25px" fontWeight={450} align="right" />
-                                                            &nbsp;  <img src={game?.user_selceted_ball_image_url} alt="..." style={{ width: "5vh" }} />
-                                                        </>
-                                                        :
-                                                        <></>
-                                                    }
-
+                                                {balls.map((item) => (
+                                                            <>
+                                                                {item?.count > 0 ?
+                                                                    <>
+                                                                        <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="25px" fontWeight={450} align="right" />
+                                                                        &nbsp;  <img src={item?.imageUrl} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                                    </>
+                                                                    :
+                                                                    <></>
+                                                                }
+                                                            </>
+                                                        ))}
                                                 </div>
                                             </div>
 
@@ -355,14 +358,18 @@ function Waiting({ selectedball }) {
                                                     {/* <TypographyMD variant='paragraph' label="Get ready, results will be announced soon! ⌛🤞" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="18px" fontWeight={450} align="center" /> */}
 
                                                     <div style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-                                                        {game?.user_selcted_ball > 0 ?
+                                                    {balls.map((item) => (
                                                             <>
-                                                                <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="16px" fontWeight={450} align="center" />
-                                                                &nbsp;  <img src={game?.user_selceted_ball_image_url} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                                {item?.count > 0 ?
+                                                                    <>
+                                                                        <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="15px" fontWeight={450} align="right" />
+                                                                        &nbsp;  <img src={item?.imageUrl} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                                    </>
+                                                                    :
+                                                                    <></>
+                                                                }
                                                             </>
-                                                            :
-                                                            <></>
-                                                        }
+                                                        ))}
                                                     </div>
 
                                                     <div>

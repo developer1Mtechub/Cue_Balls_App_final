@@ -154,13 +154,13 @@ function Winner() {
                                                 src={jackpot}
                                                 alt="Jackpot Icon"
                                                 sx={{
-                                                    position: 'absolute', top: { xs: "-30%", md: '-45%' }, left: '-10%', width: '15vh',
+                                                    position: 'absolute', top: { xs: "-30%", md: '-45%' }, left: '-10%', width: { xs: '30%',sm:'30%', md: '28%' },
                                                     margin: 0, padding: 0
                                                 }} />
                                             <Typography
                                                 variant="h5"
                                                 sx={{
-                                                    position: 'absolute', top: '50%', left: '25%', fontSize: "25px", fontFamily: "Rubik", fontWeight: 550,
+                                                    position: 'absolute', top: '50%', left: '30%', fontSize: { xs: "15px",sm:"25px", md: "25px" }, fontFamily: "Rubik", fontWeight: 550,
                                                     transform: 'translateY(-50%)', color: '#FFE064', textAlign: 'left'
                                                 }}  >
                                                 Jackpot
@@ -168,7 +168,7 @@ function Winner() {
                                             <Typography
                                                 variant="h5"
                                                 sx={{
-                                                    position: 'absolute', top: '50%', right: '5%', fontWeight: 550, fontSize: "25px", fontFamily: "Rubik",
+                                                    position: 'absolute', top: '50%', right: '5%', fontWeight: 550, fontSize: { xs: "15px",sm:"25px", md: "25px" }, fontFamily: "Rubik",
                                                     transform: 'translateY(-50%)', color: '#FFE064', textAlign: 'right'
                                                 }}  >
 

@@ -44,7 +44,7 @@ function Pickball() {
     const handleSuccessCalled = useRef(false);
 
     const getScheduleGame = (details) => {
-
+        console.log("details?.data?.user_id", details?.data?.user_id)
         var InsertAPIURL = `${url}game/get_scheduled_games?user_id=${details?.data?.user_id}`
         var headers = {
             'Accept': 'application/json',
@@ -409,14 +409,6 @@ function Pickball() {
         }, 1000)
     }
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            getScheduleGame(profiledetails); // replace with your target route
-        }, 1000); // 3000 milliseconds = 3 seconds
-
-        return () => clearTimeout(timer); // cleanup the timer
-    }, []);
-
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
@@ -458,14 +450,18 @@ function Pickball() {
                                                 </Typography>
 
                                                 <div style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-                                                    {game?.user_selcted_ball > 0 ?
+                                                    {balls.map((item) => (
                                                         <>
-                                                            <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="25px" fontWeight={450} align="right" />
-                                                            &nbsp;  <img src={game?.user_selceted_ball_image_url} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                            {item?.count > 0 ?
+                                                                <>
+                                                                    <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="25px" fontWeight={450} align="right" />
+                                                                    &nbsp;  <img src={item?.imageUrl} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                                </>
+                                                                :
+                                                                <></>
+                                                            }
                                                         </>
-                                                        :
-                                                        <></>
-                                                    }
+                                                    ))}
                                                 </div>
                                             </div>
 
@@ -578,14 +574,18 @@ function Pickball() {
                                             </Typography>
 
                                             <div style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-                                                {game?.user_selcted_ball > 0 ?
+                                                {balls.map((item) => (
                                                     <>
-                                                        <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="25px" fontWeight={450} align="right" />
-                                                        &nbsp;  <img src={game?.user_selceted_ball_image_url} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                        {item?.count > 0 ?
+                                                            <>
+                                                                <TypographyMD variant='paragraph' label="You're ball is" color="#000000" marginLeft={0} fontFamily="Rubik" fontSize="15px" fontWeight={450} align="right" />
+                                                                &nbsp;  <img src={item?.imageUrl} alt="..." style={{ width: "5vh", height: "5vh" }} />
+                                                            </>
+                                                            :
+                                                            <></>
+                                                        }
                                                     </>
-                                                    :
-                                                    <></>
-                                                }
+                                                ))}
                                             </div>
 
                                         </Box>
